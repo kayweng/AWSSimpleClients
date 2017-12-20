@@ -40,21 +40,31 @@ namespace AWSClients
         
         }
 
-        public AmazonServiceCreator(RegionEndpoint region,string accesSKey, string secretKey)
+        public static AmazonServiceCreator WithAWSKeys(RegionEndpoint region,string accesSKey, string secretKey)
         {
-            AccessKey = accesSKey;
-            SecretKey = secretKey;
+            AmazonServiceCreator _c = new AmazonServiceCreator()
+            {
+                AccessKey = accesSKey,
+                SecretKey = secretKey,
 
-            AWSRegion = region;
+                AWSRegion = region,
 
-            Credentials = new BasicAWSCredentials(accessKey: AccessKey, secretKey: SecretKey);
+                Credentials = new BasicAWSCredentials(accessKey: accesSKey, secretKey: secretKey)
+            };
+
+            return _c;
         }
 
-        public void LoadAwsCredentialsProfile(RegionEndpoint region, string location, string name= "default")
+        public static AmazonServiceCreator WithCredentialProfile(RegionEndpoint region, string location, string name= "default")
         {
-            AWSRegion = region;
+            AmazonServiceCreator _c = new AmazonServiceCreator()
+            {
+                AWSRegion = region,
 
-            Credentials = GetAWSCredentialsFromProfile(location, name);
+                Credentials = GetAWSCredentialsFromProfile(location, name),
+            };
+
+            return _c;
         }
         #endregion
 
@@ -244,7 +254,7 @@ namespace AWSClients
         #region Private
         private static AWSCredentials GetAWSCredentialsFromProfile(string profileLocation, string profileName = "default")
         {
-            var credentialProfileStoreChain = new CredentialProfileStoreChain();
+            var credentialProfileStoreChain = new CredentialProfileStoreChain(profileLocation);
             
             if (credentialProfileStoreChain.TryGetAWSCredentials(profileName, out AWSCredentials defaultCredentials))
             {

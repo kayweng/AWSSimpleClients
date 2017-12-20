@@ -24,5 +24,4 @@
     <PackageReference Include="AWSSDK.SimpleWorkflow" Version="3.3.0.24" />
     <PackageReference Include="AWSSDK.SQS" Version="3.3.3.2" />
   </ItemGroup>
-
 </Project>

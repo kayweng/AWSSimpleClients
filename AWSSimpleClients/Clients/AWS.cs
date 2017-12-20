@@ -19,9 +19,7 @@ using Amazon.SimpleWorkflow;
 using Amazon.SQS;
 using AWSClients;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace AWSSimpleClients.Clients
 {
@@ -300,7 +298,13 @@ namespace AWSSimpleClients.Clients
 
         #region Methods
 
-        public void LoadAwsCredentialsProfile(RegionEndpoint region, string profileLocation, string profileName)
+        /// <summary>
+        /// Initial AWS client creator by provided region and aws profile file.
+        /// </summary>
+        /// <param name="region"></param>
+        /// <param name="profileLocation"></param>
+        /// <param name="profileName"></param>
+        public static void LoadAwsCredentialsProfile(RegionEndpoint region, string profileLocation, string profileName)
         {
             try
             {
@@ -309,25 +313,30 @@ namespace AWSSimpleClients.Clients
                     throw new Exception("Invalid Amazon Region !");
                 }
 
-                if (string.IsNullOrEmpty(profileLocation) || string.IsNullOrEmpty(profileName))
+                if (string.IsNullOrEmpty(profileLocation))
                 {
-                    throw new Exception("Invalid File Path or File Name !");
+                    throw new Exception("Invalid profile file location!");
                 }
 
-                if(!File.Exists(profileLocation + "\\" + profileName)){
+                if(!File.Exists(profileLocation)){
                     throw new Exception("AWS profile file not found !");
                 }
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
 
-            _creator.LoadAwsCredentialsProfile(region, profileLocation, profileName);
+            _creator = AmazonServiceCreator.WithCredentialProfile(region, profileLocation, profileName);
         }
 
-        public void LoadAWSBasicCredentials(RegionEndpoint region, string accessKey, string secretKey)
+        /// <summary>
+        /// Initial AWS Client creator by provided region, access key & region key.
+        /// </summary>
+        /// <param name="region"></param>
+        /// <param name="accessKey"></param>
+        /// <param name="secretKey"></param>
+        public static void LoadAWSBasicCredentials(RegionEndpoint region, string accessKey, string secretKey)
         {
             try
             {
@@ -346,7 +355,7 @@ namespace AWSSimpleClients.Clients
                 throw ex;
             }
 
-            _creator = new AmazonServiceCreator(region, accessKey, secretKey);
+            _creator = AmazonServiceCreator.WithAWSKeys(region, accessKey, secretKey);
         }
 
         #endregion

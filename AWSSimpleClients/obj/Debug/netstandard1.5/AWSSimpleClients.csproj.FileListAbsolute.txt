@@ -1,0 +1,7 @@
+D:\AWSSimpleClients\AWSSimpleClients\AWSSimpleClients\bin\Debug\netstandard1.5\AWSSimpleClients.deps.json
+D:\AWSSimpleClients\AWSSimpleClients\AWSSimpleClients\bin\Debug\netstandard1.5\AWSSimpleClients.dll
+D:\AWSSimpleClients\AWSSimpleClients\AWSSimpleClients\bin\Debug\netstandard1.5\AWSSimpleClients.pdb
+D:\AWSSimpleClients\AWSSimpleClients\AWSSimpleClients\obj\Debug\netstandard1.5\AWSSimpleClients.csprojResolveAssemblyReference.cache
+D:\AWSSimpleClients\AWSSimpleClients\AWSSimpleClients\obj\Debug\netstandard1.5\AWSSimpleClients.AssemblyInfo.cs
+D:\AWSSimpleClients\AWSSimpleClients\AWSSimpleClients\obj\Debug\netstandard1.5\AWSSimpleClients.dll
+D:\AWSSimpleClients\AWSSimpleClients\AWSSimpleClients\obj\Debug\netstandard1.5\AWSSimpleClients.pdb

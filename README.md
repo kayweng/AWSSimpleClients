@@ -11,8 +11,8 @@ Developer provides both access key and secret key to construct AWS credential.
 
 ```c#
   private Amazon.RegionEndpoint _region = Amazon.RegionEndpoint.APSoutheast1; //sample region
-  private string _accessKey = "AKIAIBXKGGNZ3WY4DMBA";                         //sample access key
-  private string _secretKey = "jKeVefi1ECpkMoTs4SdBdXHsxcP4t8ZuxxxxFS";       //sample secret key
+  private string _accessKey = "<Your Access Key>";                         
+  private string _secretKey = "<Your Secret Key>";       
         
   AWS.LoadAWSBasicCredentials(_region, _accessKey, _secretKey);
 ```
@@ -24,8 +24,8 @@ Developer provides location file of the security credential file.
   //Download your security credential file to your machine
   //Example of aws_developer.csv: 
   //[default]
-  //aws_access_key_id=AKIAIBXKGGNZ3WY4DMBA
-  //aws_secret_access_key=jKeVefi1ECpkMoTs4SdBdXHsxcP4t8ZuxxxxFS
+  //aws_access_key_id=<Your Access Key>
+  //aws_secret_access_key=<Your Secret Key>
   
   AWS.LoadAwsCredentialsProfile(_region, "C:\\aws_developer.csv", "default");
 ```

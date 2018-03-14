@@ -14,9 +14,9 @@ namespace AWSSimpleClientsTest
     [TestClass]
     public class SimpleClientTest
     {
-        private string _accessKey = "AKIAIBXKGGNZ3WY4DMBA";
-        private string _secretKey = "jKeVefi1ECpkMoTs4SdBdXHsxcP4t8ZuvoXdZpIF";
-        private string _testEmail = "kaylek207@gmail.com";
+        private string _accessKey = "<Your Access Key>";
+        private string _secretKey = "<Your Secret Key>";
+        private string _testEmail = "<Your test Email>";
         private Amazon.RegionEndpoint _region = Amazon.RegionEndpoint.APSoutheast1;
         
         [TestMethod]
